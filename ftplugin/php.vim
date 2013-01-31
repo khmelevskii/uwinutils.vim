@@ -13,7 +13,7 @@ endif
 let g:UwinUtilsPhp = 1
 
 
-" FUNCTION: s:TogglePhpVariable {{{
+" FUNCTION: g:TogglePhpVariable {{{
 "  
 " Add/remove symbol $ for word under cursor 
 " 
@@ -45,5 +45,23 @@ function! g:TogglePhpVariable()
   endif
 
   call setpos('.', saved_cursor)
+
+  return ''
 endfunction " }}}
 
+
+" FUNCTION: g:NextPhpMethod {{{
+"  
+" If press enter when char id ) before cursor, then add -> from new line 
+" 
+function! g:NextPhpMethod()
+  let line = getline('.')
+  let linelen = strlen(line) + 1
+  let cursor = col('.')
+  
+  if linelen == cursor && ')' == strpart(line, cursor-2, 1)
+    return "\n->"
+  endif
+
+  return "\n"
+endfunction " }}}
