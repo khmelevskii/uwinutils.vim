@@ -65,3 +65,5 @@ function! g:NextPhpMethod()
 
   return "\n"
 endfunction " }}}
+
+" vim:fdm=marker:nowrap:ts=2:
