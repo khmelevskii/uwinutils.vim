@@ -7,7 +7,6 @@ fu! Uwin#FindCssClassDefinition()
   let line = substitute(css[vvv], '/\* line\ ', '', 'g')
   let line = substitute(line, '\*/', '', 'g')
 
-
   let line_parts = split(line, ',')
   let exists = get(line_parts, 1, 'NONE')
 
@@ -17,6 +16,6 @@ fu! Uwin#FindCssClassDefinition()
 
   let line_parts[1] = substitute(line_parts[1], '^\s*\(.\{-}\)\s*$', '\1', '')
 
-  execute 'e ' . line_parts[1]
+  execute 'tabe ' . line_parts[1]
   execute line_parts[0]
-endf 
+endf
